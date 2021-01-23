@@ -1,0 +1,470 @@
+PROBLEM DEFINITION :
+GENERAL DEFINITION:
+This case study looks at the problem of setting up a fast food automation. The basic problem in the food service industry is that automations are not realizing efficiencies that would result from better applications of technology in their daily operations. Every fast food has counter where you can place your order and then make the payment. So every fast food needs an employee for taking the order and processing the payment. Labor rates are increasing every now and then and it is difficult to find employees in the middle of the highway, hence to solve this problem we plan to design a "Self Served Fast Food System."
+This self-service food automation will be equipped with a user-friendly touch screen, a credit/debit card reader, and software for completing the process at the backend. For this system there will be a system administrator who will have the rights to enter the menu with their current prevailing prices. He/she can enter anytime in the system by a secured system password to change the menu contents by adding or deleting an item or changing its price.
+Now when the customer enters the automation, he will place his order with the help of the touch screen using the intuitive graphical user interface, right from the selection of language till the payment confirmation. He will select from the food options according to his choice and the system will display the payment amount he has to make once he has finished with his order. He will have the option of paying the bill by cash, debit card or a credit card. The user will slide his card and the system will check for the validity of the card and the payment will be made. A receipt will be printed containing the order number and the order will be sent in the kitchen for processing.
+ADVANTAGES:
+This will minimize the number of employees at the back of the counter.
+The system will help to reduce the cost of labor.
+The system will be less probable to make mistake, since it?s a machine.
+This will avoid long queues at the counter due to the speed of execution and number of optimum screens to accommodate the maximum throughput.
+The system will be available 24 hours for 365 days, because the machine is not going to take any sick or vacation leave.
+Scope and Objectives
+The purpose of this analysis is to demonstrate the extent to which high-level systems concept and UML notation/semantics can be used to describe the functionality of this system. This study lays out a framework for a new system to be developed and brought to the market for maximum use. The following issues, which are useful in performing a detailed analysis of the system, will be addressed in this study:
+
+What should the system do?
+What are the systems requirements?
+How does the system work?
+Can the system work?
+What objects should be chosen and each of the subsystems functionality?
+How should the object/subsystem interact?
+How to verify and validate the system?
+System Framework and Boundary
+PROBLEM ANALYSIS:
+CLASS USED IN THE PROJECT:
+class product
+<to store all the values and description of the product>
+DATA MEMBERS & FUNCTIONS:
+1.PRIVATE DATA MEMBERS OF THE CLASS PRODUCT:
+pno-to store product number
+name-to store product's name
+price-to store product's price
+qty-to store the quantity of the product to be purchased
+tax-to store the tax levied on the product
+dis-to store the discount on the product
+2.PUBLIC MEMBER FUNCTIONS OF THE CLASS PRODUCT:
+create_product()-to assign all the values of the product
+show_product()-to display all the values of the product
+retpno()-to return product number
+retprice()-to return the price of the product
+retname()-to return the name of the product
+retdis()-to return the discount percentage on the product
+3.FUNCTIONS USED IN THE PROJECT: 
+write_product()-function to write in file
+display_all()-function to read all records from file
+display_sp(int n)-function to read specific record from file
+modify_product()-function to modify record of file
+delete_product()-function to delete record of file
+menu()-function to display all products price list
+place_order()-function to place order and generating bill for Products
+intro()-INTRODUCTION FUNCTION
+admin_menu()-ADMINSTRATOR MENU FUNCTION
+main()-THE MAIN FUNCTION OF PROGRAM
+pass()-To set password for admin 
+
+FUTURE ENHACEMENTS:
+Goal 1. The system has a user-friendly user interface.
+Scenario 1.1. A particular user of the system has no difficulty in reading the text on the display.
+Scenario 1.2. The system is navigable through intuition.
+Scenario 1.3. Menu choices are presented in form of buttons, which contain text as well as little pictures illustrating the choice for better understanding.
+Goal 2. The system supports multi lingual capabilities.
+Scenario 2.1. User is not a native speaker of the common spoken language in the country.
+Scenario 2.2. System caters to English (universally accepted language for communication) and other native languages, which are commonly spoken in the country where the system is operative.
+Goal 3. System takes order from the customer as per his/her choice.
+Scenario 3.1. User selects a combo deal (i.e. a combination of main food, drink and side dish).
+Scenario 3.2. User may want to make up his own order by selecting dishes.
+Goal 4. The system calculates and displays the final bill based on the placed order.
+Scenario 4.1. System calculates final bill based on the quantity of the items multiplied by their unit price topped up by the applicable taxes if any.
+Scenario 4.2. User is given the option to either pay for the order or revise the order.
+Goal 5. System handles the payment for the user-defined order.
+Scenario 5.1: User decides to pay cash and system asks user to enter cash in the slot.
+Scenario 5.2: System verifies the cash amount and gives refund if any after deducting the amount.
+Scenario 5.3: User decides to pay through credit/debit card. System informs user to swipe card through card reader.
+Scenario 5.4: The system verifies the card and charges the amount of the bill to the card. Asks user to sign the bill on the signing pad.
+Scenario 5.5. The system prints out receipt containing a token number, details of the order, bill and the payment method with a terminal message (Thank you visit again or Store address).
+Scenario 5.6: System communicates the order to the kitchen through the internal ordering system.
+Goal 6. System offers the choice to change the menu items to the store manager.
+Scenario 6.1. Store manager decides to add / delete an item from the menu.
+Scenario 6.2. Store manager wants to put festive offers on some items because of which there is a change in the price of some of the items.
+Scenario 6.3. Store manager notices that some dishes are out of stock. Consequently he updates the menu so that those items are deleted temporarily deleted from the display presented to the user.
+Goal 7. The system is resistant to active/rigorous handling.
+Scenario 7.1. The customer must be a minor or hacker who might want to get into the system to change it. It should provide security for these areas.
+Scenario 7.2. The system will be used by different users and might experience some rough hand every now and then.
+Hardware and Software Required
+Hardware Required
+
+Printer, to print the required documents of the project
+Compact Drive
+Processor : Intel i ™ series suggested
+Ram : 1GB or above 
+Harddisk : 500GB(fully functional)
+
+software Required
+
+Operating system : Windows  7 
+Turbo C++,  for execution of program and
+Ms word, for presenattion of output and hard copy of the project.
+
+SOURCE CODE:
+//***************************************************************
+// HEADER FILE USED IN PROJECT
+//****************************************************************
+#include<iostream.h>
+#include<conio.h>
+#include<stdio.h>
+#include<process.h>
+#include<fstream.h>
+//***************************************************************
+// CLASS USED IN PROJECT
+//****************************************************************
+class product
+{
+int pno;
+char name[50];
+float price,qty,tax,dis;
+public:
+void create_product()
+{
+cout<<"\nPlease Enter The Product No. of The Product ";
+cin>>pno;
+cout<<"\n\nPlease Enter The Name of The Product ";
+gets(name);
+cout<<"\nPlease Enter The Price of The Product ";
+cin>>price;
+cout<<"\nPlease Enter The Discount (%) ";
+cin>>dis;
+}
+void show_product()
+{
+cout<<"\nThe Product No. of The Product : "<<pno;
+cout<<"\nThe Name of The Product : ";
+puts(name);
+cout<<"\nThe Price of The Product : "<<price;
+cout<<"\nDiscount : "<<dis;
+}
+int retpno()
+{return pno;}
+float retprice()
+{return price;}
+char* retname()
+{return name;}
+int retdis()
+{return dis;}
+}; //class ends here
+ 
+//***************************************************************
+// global declaration for stream object, object
+//****************************************************************
+fstream fp;
+product pr;
+//***************************************************************
+// function to write in file
+//****************************************************************
+void write_product()
+{
+fp.open("Shop.dat",ios::out|ios::app);
+pr.create_product();
+fp.write((char*)&pr,sizeof(product));
+fp.close();
+cout<<"\n\nThe Product Has Been Created ";
+getch();
+}
+//***************************************************************
+// function to read all records from file
+//****************************************************************
+void display_all()
+{
+clrscr();
+cout<<"\n\n\n\t\tDISPLAY ALL RECORD !!!\n\n";
+fp.open("Shop.dat",ios::in);
+while(fp.read((char*)&pr,sizeof(product)))
+{
+pr.show_product();
+cout<<"\n\n====================================\n";
+getch();
+}
+fp.close();
+getch();
+}
+//***************************************************************
+// function to read specific record from file
+//****************************************************************
+void display_sp(int n)
+{
+int flag=0;
+fp.open("Shop.dat",ios::in);
+while(fp.read((char*)&pr,sizeof(product)))
+{
+if(pr.retpno()==n)
+{
+clrscr();
+pr.show_product();
+flag=1;
+}
+}
+fp.close();
+if(flag==0)
+cout<<"\n\nrecord not exist";
+getch();
+}
+//***************************************************************
+// function to modify record of file
+//****************************************************************
+void modify_product()
+{
+int no,found=0;
+clrscr();
+cout<<"\n\n\tTo Modify ";
+cout<<"\n\n\tPlease Enter The Product No. of The Product";
+cin>>no;
+fp.open("Shop.dat",ios::in|ios::out);
+while(fp.read((char*)&pr,sizeof(product)) && found==0)
+{
+if(pr.retpno()==no)
+{
+pr.show_product();
+cout<<"\nPlease Enter The New Details of Product"<<endl;
+pr.create_product();
+int pos=-1*sizeof(pr);
+fp.seekp(pos,ios::cur);
+fp.write((char*)&pr,sizeof(product));
+cout<<"\n\n\t Record Updated";
+found=1;
+}
+}
+fp.close();
+if(found==0)
+cout<<"\n\n Record Not Found ";
+getch();
+}
+//***************************************************************
+// function to delete record of file
+//****************************************************************
+void delete_product()
+{
+int no;
+clrscr();
+cout<<"\n\n\n\tDelete Record";
+cout<<"\n\nPlease Enter The product no. of The Product You Want To Delete";
+cin>>no;
+fp.open("Shop.dat",ios::in|ios::out);
+fstream fp2;
+fp2.open("Temp.dat",ios::out);
+fp.seekg(0,ios::beg);
+while(fp.read((char*)&pr,sizeof(product)))
+{
+if(pr.retpno()!=no)
+{
+fp2.write((char*)&pr,sizeof(product));
+}
+}
+fp2.close();
+fp.close();
+remove("Shop.dat");
+rename("Temp.dat","Shop.dat");
+cout<<"\n\n\tRecord Deleted ..";
+getch();
+}
+//***************************************************************
+// function to display all products price list
+//****************************************************************
+void menu()
+{
+clrscr();
+fp.open("Shop.dat",ios::in);
+if(!fp)
+{
+cout<<"ERROR!!! FILE COULD NOT BE OPEN\n\n\n Go To Admin Menu to create file";
+cout<<"\n\n\n Program is closing ....";
+getch();
+exit(0);
+}
+cout<<"\n\n\t\tProduct MENU\n\n";
+cout<<"====================================================\n";
+cout<<"P.NO.\t\tNAME\t\tPRICE\n";
+cout<<"====================================================\n";
+while(fp.read((char*)&pr,sizeof(product)))
+{
+cout<<pr.retpno()<<"\t\t"<<pr.retname()<<"\t\t"<<pr.retprice()<<endl;
+}
+fp.close();
+}
+ 
+//***************************************************************
+// function to place order and generating bill for Products
+//****************************************************************
+void place_order()
+{
+int order_arr[50],quan[50],c=0;
+float amt,damt,total=0;
+char ch='Y';
+for(int i=0;i<50;i++)
+{order_arr[i]=0;
+quan[i]=0;
+}
+menu();
+cout<<"\n============================";
+cout<<"\n PLACE YOUR ORDER";
+cout<<"\n============================\n";
+while(ch=='y' ||ch=='Y')
+{
+cout<<"\n\nEnter The Product No. Of The Product : ";
+cin>>order_arr[c];
+cout<<"\nQuantity in number : ";
+cin>>quan[c];
+c++;
+cout<<"\nDo You Want To Order Another Product ? (y/n)";
+cin>>ch;
+}
+cout<<"\n\nThank You For Placing The Order";getch();clrscr();
+cout<<"\n\n********************************INVOICE************************\n";
+cout<<"\nPr No.\tPr Name\tQuantity \tPrice \tAmount \tAmount after discount\n";
+for(int x=0;x<=c;x++)
+{
+fp.open("Shop.dat",ios::in);
+fp.read((char*)&pr,sizeof(product));
+while(!fp.eof())
+{
+if(pr.retpno()==order_arr[x])
+{
+amt=pr.retprice()*quan[x];
+damt=amt-(amt*pr.retdis()/100);
+cout<<"\n"<<order_arr[x]<<"\t"<<pr.retname()
+<<"\t"<<quan[x]<<"\t\t"<<pr.retprice()<<"\t"<<amt<<"\t\t"<<damt;
+total+=damt;
+}
+fp.read((char*)&pr,sizeof(product));
+}
+fp.close();
+}
+cout<<"\n\n\t\t\t\t\tTOTAL = "<<total;
+getch();
+}
+//***************************************************************
+// INTRODUCTION FUNCTION
+//****************************************************************
+void intro()
+{
+clrscr();
+gotoxy(31,11);
+cout<<"FOOD AUTOMATION";
+gotoxy(35,14);
+cout<<"BILLING";
+gotoxy(35,17);
+cout<<"PROJECT";
+cout<<"\n\nMADE BY : TARUN\nDAS\nVIGNESH\nGUHAN";
+cout<<"\n\nSCHOOL : MAHARISHI VIDYA MANDIR";
+getch();
+}
+ 
+//***************************************************************
+// ADMINSTRATOR MENU FUNCTION
+//****************************************************************
+void admin_menu()
+{
+clrscr();
+char ch2;
+cout<<"\n\n\n\tADMIN MENU";
+cout<<"\n\n\t1.CREATE PRODUCT";
+cout<<"\n\n\t2.DISPLAY ALL PRODUCTS";
+cout<<"\n\n\t3.QUERY ";
+cout<<"\n\n\t4.MODIFY PRODUCT";
+cout<<"\n\n\t5.DELETE PRODUCT";
+cout<<"\n\n\t6.VIEW PRODUCT MENU";
+cout<<"\n\n\t7.BACK TO MAIN MENU";
+cout<<"\n\n\tPlease Enter Your Choice (1-7) ";
+ch2=getche();
+switch(ch2)
+{
+case '1': clrscr();
+write_product();
+break;
+case '2': display_all();break;
+case '3':
+int num;
+clrscr();
+cout<<"\n\n\tPlease Enter The Product No. ";
+cin>>num;
+display_sp(num);
+break;
+case '4': modify_product();break;
+case '5': delete_product();break;
+case '6': menu();
+getch();
+case '7': break;
+default:cout<<"\a";admin_menu();
+}
+}
+int pass();
+//***************************************************************
+// THE MAIN FUNCTION OF PROGRAM
+//****************************************************************
+void main()
+{
+char ch;
+intro();
+int x;
+{do
+{
+clrscr();
+cout<<"\n\n\n\tMAIN MENU";
+cout<<"\n\n\t01. CUSTOMER";
+cout<<"\n\n\t02. ADMINISTRATOR";
+cout<<"\n\n\t03. EXIT";
+cout<<"\n\n\tPlease Select Your Option (1-3) ";
+ch=getche();
+switch(ch)
+{
+case '1': clrscr();
+place_order();
+getch();
+break;
+case '2':
+x=pass();
+if(x==1)
+{admin_menu();}
+break;
+case '3':exit(0);
+default :cout<<"\a";
+}
+}while(ch!='3'); }
+}
+//***************************************************************
+// To set password for admin
+//****************************************************************
+int pass()
+{     clrscr();
+   int c[3];
+   for(int i=0;i<3;i++)
+   c[i]=0;
+   int f=0;
+   int times=5;
+   for(times;times>0;times--)
+   {
+   cout<< "\n\n\n\n\n\n\n\n\n\n\nEnter master password three layer pattern 2 , 2 and 4\n(PRESS ENTER AFTER EACH PATTERN)\n";
+   cin>>c[0];
+   if(c[0]==27)
+   {clrscr();cout<< "\n\n\n\n\n\n\n\n\n\n\nEnter master password three layer pattern 2 , 2 and 4 \n";
+   cout<<"**\t";
+   cin>>c[1];
+   if(c[1]==12)
+   {clrscr();cout<< "\n\n\n\n\n\n\n\n\n\n\nEnter master password three layer pattern 2 , 2 and 4\n";
+   cout<<"**\t**\t";
+   cin>>c[2];
+   if(c[2]==1999)
+   {clrscr();cout<< "\n\n\n\n\n\n\n\n\n\n\nEnter master password three layer pattern 2 , 2 and 4\n";
+   cout<<"**\t**\t****";
+      {
+      cout << "\nAccess granted :P\n";
+
+      f=1;goto z;
+   } }  }}   cout << "\nAccess aborted...\n";
+
+      cout<<"more "<<times-1<<"tries remaining";
+
+   }  f=0;
+   z: return f;
+}
+//***************************************************************
+// END OF PROJECT
+//***************************************************************
+Bibliography
+ Cppforschool.com
+ Scholar.google.com
+ cbse.nic.in(for further clarification)
+ Youtube.com
+ Wikipedia
+ C++ for all
+ The Mozilla archives
+
+
